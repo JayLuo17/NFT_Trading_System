@@ -15,6 +15,8 @@ brownie run scripts/deploy.py --network sepolia
 brownie run scripts/create_title.py --network sepolia
 ```
 
+3. Before issuing new title NFT, need to add the vehicle information in `./input/user_inputs.py`. Please follow the sentax in the `./metadata/metadata_sample.py`
+
 3. Notes:
 - Need install brownie, recommend using the following `pipx` command; do not use `pipx install eth-brownie`
 ```
