@@ -31,7 +31,7 @@ python3 -m pipx install eth-brownie
 
 ## Coin Generation
 
-- Under implementation... :)
+- Under implementation... :yum:
 
 ## TODOs
 - [ ] Write the test functions for `NFT_generation`
