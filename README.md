@@ -1,5 +1,5 @@
-# NFT_Trading_System
-This is a demo implementation of the NFT trading system @ A&amp;C Technology
+# NFT Trading System
+This is the official implementation of the NFT trading system @ [A&amp;C Technology](https://www.linkedin.com/company/a-c-technology-inc)
 
 - Aurthor: _[Jiayi](https://github.com/JayLuo17/) and [Hanhua](https://github.com/HenryJiang97)_
 
@@ -20,6 +20,7 @@ brownie run scripts/create_title.py --network sepolia
 ```
 python3 -m pipx install eth-brownie
 ```
+- Currently, all the NFT token records are hosted on ipfs using local point, need to migrate to public network using public service like [`pinata`](https://www.pinata.cloud/).
 - Need to add sepolia testnet to brownie, which is the PoS eth-based network. Use the follwoing architecture:
 ```
    sepolia
@@ -30,8 +31,9 @@ python3 -m pipx install eth-brownie
 
 ## Coin Generation
 
-- Under implementation...
+- Under implementation... 8-)
 
 ## TODOs
 - [ ] Write the test functions for `NFT_generation`
+- [ ] Add other functions to the 
 - [ ] Write the `Coin_generation` for PoY coin generation
