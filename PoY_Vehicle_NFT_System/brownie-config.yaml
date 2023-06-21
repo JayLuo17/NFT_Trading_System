@@ -4,5 +4,8 @@ compiler:
   solc:
     remappings:
       - '@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.9.2' 
+dotenv: .env
 wallets:
   from_key: ${PRIVATE_KEY}
+  from_test_key1: ${TEST_PRIVATE_KEY1}
+  from_test_key2: ${TEST_PRIVATE_KEY2}
