@@ -75,6 +75,10 @@ brownie networks add Ethereum ganache host=http://127.0.0.1:7545 chainid=5777
 
 ## Update
 
+- **06/19/2023**:
+
+    - Initial commit to add the implementation of `NFT_generation`
+
 - **06/21/2023**: 
     
     - Merge the `NFT_generation` and `Coin_generation` into one folder `PoY_Vehicle_NFT_System` to have a consistent testing environment
