@@ -4,7 +4,7 @@ This is the official implementation of the NFT trading system @ [A&amp;C Technol
 - Aurthor: _[Jiayi](https://github.com/JayLuo17/) and [Hanhua](https://github.com/HenryJiang97)_
 
 
-## Deployment
+### Deployment
 - Deploy on sepolia testnet
 ```
 brownie run scripts/deploy.py --network sepolia
@@ -15,7 +15,7 @@ brownie run scripts/deploy.py --network sepolia
 brownie run scripts/deploy.py --network ganache
 ```
 
-## NFT Generation
+### NFT Generation
 The basic implementation of issuing new NFT tokens (vechile title) based on the use's input
 
 - Test on sepolia testnet
@@ -27,7 +27,7 @@ brownie run scripts/create_title.py --network sepolia
 ```
 brownie run scripts/create_title.py --network ganache
 ```
-## Coin Generation
+### Coin Generation
 The basic implementation of issuing new PoY coin for rewarding
 
 - Test on sepolia testnet
@@ -40,12 +40,13 @@ brownie run scripts/transfer.py --network sepolia
 brownie run scripts/transfer.py --network ganache
 ```
 
-- Note that the transfer.py has several APIs for external usage.
+## Notes:
+1. The transfer.py has several APIs for external usage.
 ```
 register; addFund; transferFund
 ```
 
-3. Before issuing new title NFT, need to add the vehicle information in `./input/user_inputs.py`. Please follow the sentax in the `./metadata/metadata_sample.py`
+2. Before issuing new title NFT, need to add the vehicle information in `./input/user_inputs.py`. Please follow the sentax in the `./metadata/metadata_sample.py`
 
 3. Notes:
 - Need install brownie, recommend using the following `pipx` command; do not use `pipx install eth-brownie`
