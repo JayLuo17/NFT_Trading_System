@@ -3,6 +3,8 @@ This is the official implementation of the NFT trading system @ [A&amp;C Technol
 
 - Aurthor: _[Jiayi](https://github.com/JayLuo17/) and [Hanhua](https://github.com/HenryJiang97)_
 
+## Decentralized Design - Coin & NFT
+The first part of the system is the decentralized design of the coin (PoY) and the NFT generation.
 
 ### Deployment
 - Deploy on sepolia testnet
@@ -73,6 +75,12 @@ brownie networks add Ethereum sepolia host=https://sepolia.infura.io/v3/XXX chai
 
 brownie networks add Ethereum ganache host=http://127.0.0.1:7545 chainid=5777
 ```
+
+## Centralized Design - Database & Back-End
+Under Implementation... :yum:
+
+## Front-End Design - Webpage
+Under Implementation... :yum:
 
 ## Update
 
