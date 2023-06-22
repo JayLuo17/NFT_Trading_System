@@ -42,6 +42,11 @@ brownie run scripts/transfer.py --network sepolia
 brownie run scripts/transfer.py --network ganache
 ```
 
+- Run test on ganache (local)
+```
+brownie test --network ganache
+```
+
 ## Notes:
 1. The transfer.py has several APIs for external usage.
 ```
@@ -91,6 +96,10 @@ Under Implementation... :yum:
 - **06/21/2023**: 
     
     - Merge the `NFT_generation` and `Coin_generation` into one folder `PoY_Vehicle_NFT_System` to have a consistent testing environment
+
+- **06/22/2023**
+
+    - Add one test function to test the `transfer` and `addFund` functions
 
 ## TODOs
 - [ ] Write the test functions
