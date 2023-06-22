@@ -13,7 +13,7 @@ def deploy():
     PoY = PoYToken.deploy({"from": account})
 
     TT = TokenTransfer.deploy(PoY.address, {"from": account})
-    tx = PoY.transfer(TT.address, PoY.totalSupply() - 10**10)
+    tx = PoY.transfer(TT.address, PoY.totalSupply() - 10**10, {"from": account})
     tx.wait(1)
     print(f"PoY deployed at {PoY.address}")
     print(f"Transfer Contract deployed at {TT.address}")
