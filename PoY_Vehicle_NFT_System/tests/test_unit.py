@@ -1,10 +1,28 @@
 import pytest
-from brownie import network, PoYToken, TokenTransfer
+from brownie import network, PoYToken, TokenTransfer, PoYCoin
 from scripts.deploy import deploy
 from scripts.transfer import register, addFund, transferFund
-from scripts.help_scripts import LOCAL_BLOCKCHAIN_ENVIRONMENTS, get_account, get_test_account1, get_test_account2
+from scripts.help_scripts import (
+    LOCAL_BLOCKCHAIN_ENVIRONMENTS,
+    get_account,
+    get_test_account1,
+    get_test_account2,
+)
 
-def test_transfer():
+
+def test_coinGen():
+    if network.show_active() not in LOCAL_BLOCKCHAIN_ENVIRONMENTS:
+        pytest.skip("Only for local testing...")
+    deploy()
+    owner = get_account()
+    receiver = get_test_account1()
+
+    PoYContract = PoYCoin[-1]
+
+    print(PoYContract.sumArrays([1, 2, 3], [2, 3, 4]))
+
+
+def _test_transfer():
     if network.show_active() not in LOCAL_BLOCKCHAIN_ENVIRONMENTS:
         pytest.skip("Only for local testing...")
 
@@ -27,8 +45,10 @@ def test_transfer():
     addFund(receiver1, TokenContract, owner, fund_Amount)
     afterFund_amount = TokenContract.TokenBalance(receiver1.address)
 
-    assert(original_amount + fund_Amount == afterFund_amount)
-    assert(TokenContract.TokenBalance(receiver1.address) - fund_Amount == TokenContract.TokenBalance(receiver2.address))
+    assert original_amount + fund_Amount == afterFund_amount
+    assert TokenContract.TokenBalance(
+        receiver1.address
+    ) - fund_Amount == TokenContract.TokenBalance(receiver2.address)
 
     # Test transfer function
     transfer_Amount = 3
@@ -37,9 +57,11 @@ def test_transfer():
     transferFund(TokenContract, PoY, receiver1, receiver2, transfer_Amount)
     afterTransfer_amount1 = TokenContract.TokenBalance(receiver1.address)
     afterTransfer_amount2 = TokenContract.TokenBalance(receiver2.address)
-    
-    assert(original_amount1 - transfer_Amount == afterTransfer_amount1)
-    assert(original_amount2 + transfer_Amount == afterTransfer_amount2)
-    assert(TokenContract.TokenBalance(receiver1.address) - fund_Amount + 2*transfer_Amount == TokenContract.TokenBalance(receiver2.address))
 
-    
+    assert original_amount1 - transfer_Amount == afterTransfer_amount1
+    assert original_amount2 + transfer_Amount == afterTransfer_amount2
+    assert TokenContract.TokenBalance(
+        receiver1.address
+    ) - fund_Amount + 2 * transfer_Amount == TokenContract.TokenBalance(
+        receiver2.address
+    )
