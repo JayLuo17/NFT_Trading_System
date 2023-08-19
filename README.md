@@ -6,6 +6,13 @@ This is the official implementation of the NFT trading system @ [A&amp;C Technol
 ## Decentralized Design - Coin & NFT
 The first part of the system is the decentralized design of the coin (PoY) and the NFT generation.
 
+### Establish the Ganache Env
+Need to check the port number, remember to delete all the files under build/deployments
+- Start the environment
+```
+ganache-cli -d -p 7545
+```
+
 ### Deployment
 - Deploy on sepolia testnet
 ```
@@ -84,7 +91,7 @@ brownie networks add Ethereum ganache host=http://127.0.0.1:7545 chainid=5777
 ## Centralized Design - Database & Back-End
 Under Implementation... :yum:
 
-## Front-End Design - Webpage
+## UI Design - Webpage
 Under Implementation... :yum:
 
 ## Update
