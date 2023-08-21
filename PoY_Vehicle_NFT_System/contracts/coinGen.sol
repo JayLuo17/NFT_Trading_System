@@ -53,12 +53,12 @@ contract PoYCoin is ERC721Enumerable {
         uint X, // number of digit
         uint Y // base, total supply is X**Y
     ) public {
-        require(supply <= X ** Y);
+        require(supply <= X ** Y - 1);
+
         // ============== First to recipient ========== //
         // Derive the count data for each coin face value
         // costs is the same length of the _faceVals
         uint[] memory counts = minCoins(_faceVals, supply);
-
         // Derive the code list based on the imageBytes and base Y
         // segments is of length Y, reprensents the byte code for each image segment
         // Derive the code for each coin
@@ -84,8 +84,7 @@ contract PoYCoin is ERC721Enumerable {
         }
 
         // ============== Second to owner ========== //
-        uint[] memory newCounts = minCoins(_faceVals, X ** Y - supply);
-
+        uint[] memory newCounts = minCoins(_faceVals, X ** Y - supply - 1);
         for (uint i = 0; i < newCounts.length; i++) {
             uint faceVal = _faceVals[i];
             for (uint j = 0; j < newCounts[i]; j++) {
