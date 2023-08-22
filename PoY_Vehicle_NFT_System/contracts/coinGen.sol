@@ -6,8 +6,9 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 
 contract PoYCoin is ERC721Enumerable {
     using Counters for Counters.Counter;
-    Counters.Counter private _CoinIdCounter;
+    Counters.Counter public _coinIdCounter; // change to private during production
     uint[] public _faceVals;
+    uint public _totalVal;
 
     // TODO: Mapping from token ID to token metadata (e.g., a JSON string or IPFS hash)
     mapping(uint256 => string) private _tokenURIs;
@@ -34,13 +35,14 @@ contract PoYCoin is ERC721Enumerable {
         uint[] memory code,
         uint val
     ) public returns (uint256) {
-        _CoinIdCounter.increment();
-        uint256 newCoinId = _CoinIdCounter.current();
+        _coinIdCounter.increment();
+        uint256 newCoinId = _coinIdCounter.current();
         _safeMint(recipient, newCoinId);
 
         _coinData[newCoinId] = CoinData({code: code, value: val});
         coinIds.push(val);
         coinAds.push(recipient);
+        _totalVal += val;
 
         return newCoinId;
     }

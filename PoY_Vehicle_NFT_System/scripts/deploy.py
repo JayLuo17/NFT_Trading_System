@@ -1,9 +1,9 @@
-from scripts.help_scripts import get_account
-from brownie import TitleToken, PoYToken, TokenTransfer
-from web3 import Web3
+from scripts.help_scripts import get_account, get_test_account1, get_test_account2
+
+from brownie import accounts, TitleToken, PoYToken, TokenTransfer, PoYCoin
 
 
-def deploy():
+def deploy_NFT():
     account = get_account()
     print(account)
 
@@ -19,5 +19,14 @@ def deploy():
     print(f"Transfer Contract deployed at {TT.address}")
 
 
+def deploy_Coin():
+    account = get_account()
+    print(account)
+
+    coin = PoYCoin.deploy({"from": account})
+    coin.wait(1)
+    print(f"PoY Contract deployed at {coin.address}")
+
+
 def main():
-    deploy()
+    deploy_Coin()
